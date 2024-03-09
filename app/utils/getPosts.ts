@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { PostData } from '@/types';
+import { MatterDataWithContent, PostData } from '@/types';
 
 export function getPosts(): PostData[] {
   const files = fs.readdirSync(path.join('public/posts'));
@@ -15,6 +15,7 @@ export function getPosts(): PostData[] {
     return {
       slug,
       title: frontmatter.title,
+      description: frontmatter.description,
       date: frontmatter.date,
       image: frontmatter.image,
       tags: frontmatter.tags,
@@ -24,8 +25,16 @@ export function getPosts(): PostData[] {
   return posts;
 }
 
-export function getPostContent(slug: string) {
+export function getPostContent(slug: string): MatterDataWithContent {
   const file = `public/posts/${slug}.md`;
-  const content = fs.readFileSync(file, 'utf-8');
-  return content;
+  const { content, data } = matter(fs.readFileSync(file, 'utf-8'));
+  const postData = {
+    title: data.title,
+    date: data.date,
+    description: data.description,
+    image: data.image,
+    tags: data.tags,
+  };
+
+  return { content, data: postData };
 }

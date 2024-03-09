@@ -1,9 +1,15 @@
 export type PostData = {
   slug: string;
   title: string;
+  description: string;
   date: string;
   image: string;
   tags: string[];
+};
+
+export type MatterDataWithContent = {
+  content: string;
+  data: Omit<PostData, 'slug'>;
 };
 
 export type SlugParams = {

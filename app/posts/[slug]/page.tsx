@@ -1,9 +1,34 @@
-import { getPostContent } from '@/utils/getPosts';
+import { getPostContent, getPosts } from '@/utils/getPosts';
+import Markdown from 'markdown-to-jsx';
 import { SlugParams } from '@/types';
+import { Metadata } from 'next/types';
 
-function Post({params: { slug }}: SlugParams) {
-  const contennt = getPostContent(slug);
-  return <div>{contennt}</div>;
+export default function Post({ params: { slug } }: SlugParams) {
+  const { content, data } = getPostContent(slug);
+
+  return (
+    <>
+      <h1>{data.title}</h1>
+      <Markdown>{content}</Markdown>
+    </>
+  );
 }
 
-export default Post;
+export async function generateStaticParams() {
+  const posts = getPosts();
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
+export async function generateMetadata({
+  params: { slug },
+}: SlugParams): Promise<Metadata> {
+  const { data } = getPostContent(slug);
+
+  return {
+    title: data.title,
+    description: data.description,
+  };
+}

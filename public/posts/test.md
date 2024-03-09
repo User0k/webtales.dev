@@ -1,8 +1,8 @@
 ---
-title: Test
-description: Test
+title: A title
+description: A description
 date: 2022-11-11
-tags: [blog]
+tags: [js, ts, next]
 image: /images/test.jpg
 ---
 
@@ -14,3 +14,37 @@ image: /images/test.jpg
 - Some list2
 
 Lorem ipsum dolor sit amet consectetur adipisicing elit.
+Lorem ipsum dolor sit amet consectetur adipisicing elit.
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit.
+
+![Alt description](../images/fox.jpg 'Brown fox')
+
+```js
+import Component from './Component'
+
+// A super-mighty comment here 😅
+
+test('A jest test', async () => {
+  const someObj = {
+    user: {
+      id: '45ggr4545-sd32-45le-fr56-7efwpiof4w3',
+      isActive: false,
+      age: 30,
+      name: {
+        first: 'Anna',
+        last: 'Johnsson'
+      },
+      address: {
+        city: 'Gothenburg',
+        country: 'Sweden'
+      }
+    },
+  }
+```
+
+<ol>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+</ol>
