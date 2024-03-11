@@ -1,4 +1,21 @@
 :root {
+  /* colors */
+  --color-js: #f0db4f;
+  --color-ts: #007acc;
+  --color-html: #e34c26;
+  --color-css: #563d7c;
+  --color-redux: #764abc;
+  --color-react: #61dafb;
+  --color-next: #000000;
+  --color-git: #2f9f66;
+  --color-success: #4aa74e;
+  --color-info: #03a9f4;
+  --color-warning: #ffc107;
+  --color-danger: #df0000;
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  /* radius */
   --radius-small: 5px;
 }
 
