@@ -7,18 +7,20 @@ export default function Home() {
   return (
     <main>
       <h1>Home</h1>
-      <div className="container">
+      <div>
         {posts.map((post) => (
           <div key={post.slug}>
             <Link href={`/posts/${post.slug}`}>
-              <h3>{post.title}</h3>
               <Image
-                src={post.image}
+                src={`/posts/${post.slug}/${post.image}`}
                 alt={post.title}
-                width={300}
+                width={400}
                 height={200}
+                priority={true}
               />
             </Link>
+            <div>{post.tags[0]}</div>
+            <h3>{post.title}</h3>
           </div>
         ))}
       </div>

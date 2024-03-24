@@ -1,19 +1,19 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { POSTS_PATH } from '../../constants';
 import { MatterDataWithContent, PostData } from '@/types';
 
 export function getPosts(): PostData[] {
-  const files = fs.readdirSync(path.join('public/posts'));
-  const posts = files.map((fileName) => {
-    const slug = fileName.replace('.md', '');
+  const dirs = fs.readdirSync(POSTS_PATH);
+  const posts = dirs.map((dirName) => {
     const markdownWithMeta = fs.readFileSync(
-      path.join('public/posts', fileName),
+      path.join(`${POSTS_PATH}/${dirName}/index.md`),
       'utf-8',
     );
     const { data: frontmatter } = matter(markdownWithMeta);
     return {
-      slug,
+      slug: dirName,
       title: frontmatter.title,
       description: frontmatter.description,
       date: frontmatter.date,
@@ -25,8 +25,13 @@ export function getPosts(): PostData[] {
   return posts;
 }
 
+function transformImagesPaths(content: string, slug: string) {
+  const regex = /(!\[.*?\]\()\.\//g;
+  return content.replace(regex, `$1/posts/${slug}/`);
+}
+
 export function getPostContent(slug: string): MatterDataWithContent {
-  const file = `public/posts/${slug}.md`;
+  const file = `${POSTS_PATH}/${slug}/index.md`;
   const { content, data } = matter(fs.readFileSync(file, 'utf-8'));
   const postData = {
     title: data.title,
@@ -36,5 +41,5 @@ export function getPostContent(slug: string): MatterDataWithContent {
     tags: data.tags,
   };
 
-  return { content, data: postData };
+  return { content: transformImagesPaths(content, slug), data: postData };
 }

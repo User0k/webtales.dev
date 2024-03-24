@@ -1,9 +1,9 @@
 ---
-title: A title
+title: 1 title
 description: A description
 date: 2022-11-11
 tags: [js, ts, next]
-image: /images/test.jpg
+image: test.jpg
 ---
 
 # h1
@@ -18,7 +18,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit.
 
 Lorem ipsum dolor sit amet consectetur adipisicing elit.
 
-![Alt description](../images/fox.jpg 'Brown fox')
+![Alt description](./fox.jpg 'Brown fox')
 
 ```js
 import Component from './Component'

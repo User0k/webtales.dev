@@ -1,5 +1,6 @@
 import { getPostContent, getPosts } from '@/utils/getPosts';
 import Markdown from 'markdown-to-jsx';
+import Image from 'next/image';
 import { SlugParams } from '@/types';
 import { Metadata } from 'next/types';
 
@@ -7,10 +8,16 @@ export default function Post({ params: { slug } }: SlugParams) {
   const { content, data } = getPostContent(slug);
 
   return (
-    <>
+    <div className="card">
       <h1>{data.title}</h1>
+      <Image
+        src={`/posts/${slug}/${data.image}`}
+        alt={data.title}
+        width={400}
+        height={200}
+      />
       <Markdown>{content}</Markdown>
-    </>
+    </div>
   );
 }
 
