@@ -4,23 +4,25 @@ import matter from 'gray-matter';
 import { POSTS_PATH } from '../../constants';
 import { MatterDataWithContent, PostData } from '@/types';
 
-export function getPosts(): PostData[] {
+export function getSortedPosts(): PostData[] {
   const dirs = fs.readdirSync(POSTS_PATH);
-  const posts = dirs.map((dirName) => {
-    const markdownWithMeta = fs.readFileSync(
-      path.join(`${POSTS_PATH}/${dirName}/index.md`),
-      'utf-8',
-    );
-    const { data: frontmatter } = matter(markdownWithMeta);
-    return {
-      slug: dirName,
-      title: frontmatter.title,
-      description: frontmatter.description,
-      date: frontmatter.date,
-      image: frontmatter.image,
-      tags: frontmatter.tags,
-    };
-  });
+  const posts = dirs
+    .map((dirName) => {
+      const markdownWithMeta = fs.readFileSync(
+        path.join(`${POSTS_PATH}/${dirName}/index.md`),
+        'utf-8',
+      );
+      const { data: frontmatter } = matter(markdownWithMeta);
+      return {
+        slug: dirName,
+        title: frontmatter.title,
+        description: frontmatter.description,
+        date: frontmatter.date,
+        image: frontmatter.image,
+        tags: frontmatter.tags,
+      };
+    })
+    .sort((post1, post2) => post2.date - post1.date);
 
   return posts;
 }

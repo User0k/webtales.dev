@@ -1,4 +1,4 @@
-import { getPostContent, getPosts } from '@/utils/getPosts';
+import { getPostContent, getSortedPosts } from '@/utils/getPosts';
 import Markdown from 'markdown-to-jsx';
 import Image from 'next/image';
 import { SlugParams } from '@/types';
@@ -8,7 +8,7 @@ export default function Post({ params: { slug } }: SlugParams) {
   const { content, data } = getPostContent(slug);
 
   return (
-    <div className="card">
+    <div>
       <h1>{data.title}</h1>
       <Image
         src={`/posts/${slug}/${data.image}`}
@@ -22,7 +22,7 @@ export default function Post({ params: { slug } }: SlugParams) {
 }
 
 export async function generateStaticParams() {
-  const posts = getPosts();
+  const posts = getSortedPosts();
 
   return posts.map((post) => ({
     slug: post.slug,
