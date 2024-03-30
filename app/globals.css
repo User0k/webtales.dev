@@ -1,7 +1,7 @@
 :root {
   /* colors */
-  --color-js: #f0db4f;
-  --color-ts: #007acc;
+  --color-javascript: #fde22e;
+  --color-typescript: #007acc;
   --color-html: #e34c26;
   --color-css: #563d7c;
   --color-redux: #764abc;
@@ -16,7 +16,7 @@
   --color-white: #ffffff;
 
   /* radius */
-  --radius-small: 5px;
+  --radius-small: 4px;
 }
 
 * {
@@ -30,7 +30,15 @@ body {
   max-width: 100vw;
 }
 
+h2 {
+  font-weight: normal;
+}
+
 a {
   color: inherit;
   text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
 }

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getSortedPosts } from './utils/getPosts';
 import dateConverter from './utils/dateConverter';
+import getColorBasedOnBackground from './utils/getColorBasedOnBackground';
 import s from './home.module.css';
 
 export default function Home() {
@@ -25,7 +26,15 @@ export default function Home() {
                   height={480}
                   priority={true}
                 />
-                <div className={s.ribbon}>{post.tags[0]}</div>
+                <div
+                  className={s.ribbon}
+                  style={{
+                    backgroundColor: `var(--color-${post.tags[0]})`,
+                    color: getColorBasedOnBackground(post.tags[0]),
+                  }}
+                >
+                  {post.tags[0].toUpperCase()}
+                </div>
               </Link>
               <section className={s.content}>
                 <h3>{post.title}</h3>
@@ -34,7 +43,13 @@ export default function Home() {
                     <li key={tag}>{tag}</li>
                   ))}
                 </ul>
-                <time dateTime={post.date}>{dateConverter(post.date)}</time>
+                <p>{post.description}</p>
+                <time dateTime={post.date}>
+                  <i>{dateConverter(post.date)}</i>
+                </time>
+                <Link href={`/posts/${post.slug}`} className={s.button}>
+                  Read article
+                </Link>
               </section>
             </article>
           ))}
