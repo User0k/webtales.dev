@@ -1,10 +1,10 @@
 import { getPostContent, getSortedPosts } from '@/utils/getPosts';
-import Markdown from 'markdown-to-jsx';
 import Image from 'next/image';
 import { SlugParams } from '@/types';
 import { Metadata } from 'next/types';
+import Markdown from './MDWithCode';
 
-export default function Post({ params: { slug } }: SlugParams) {
+export default async function Post({ params: { slug } }: SlugParams) {
   const { content, data } = getPostContent(slug);
 
   return (
@@ -16,7 +16,7 @@ export default function Post({ params: { slug } }: SlugParams) {
         width={400}
         height={200}
       />
-      <Markdown>{content}</Markdown>
+      <Markdown content={content} />
     </div>
   );
 }
