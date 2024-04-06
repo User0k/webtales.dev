@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getSortedPosts } from './utils/getPosts';
 import dateConverter from './utils/dateConverter';
-import getColorBasedOnBackground from './utils/getColorBasedOnBackground';
+import generateRibbonColors from './utils/generateRibbonColors';
 import s from './home.module.css';
 
 export default function Home() {
@@ -28,10 +28,7 @@ export default function Home() {
                 />
                 <div
                   className={s.ribbon}
-                  style={{
-                    backgroundColor: `var(--color-${post.tags[0]})`,
-                    color: getColorBasedOnBackground(post.tags[0]),
-                  }}
+                  style={generateRibbonColors(post.tags[0])}
                 >
                   {post.tags[0].toUpperCase()}
                 </div>
