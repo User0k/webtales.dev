@@ -1,23 +1,36 @@
 import MDToJSX from 'markdown-to-jsx';
-import hljs from 'highlight.js/lib/core';
-import javascript from 'highlight.js/lib/languages/javascript';
-import './code.css';
+import highlightCode from '@/utils/highlightCode';
+import getHighlightedLinesInLang from '@/utils/getHighlightedLinesInLang';
 
 export default async function Markdown({ content }: { content: string }) {
-  hljs.registerLanguage('javascript', javascript);
+  const reversedLangs = getHighlightedLinesInLang(content).reverse();
 
   return (
     <MDToJSX
       options={{
         overrides: {
           code: {
-            component: ({ children, className }) => {
-              const lang = className.replace('lang-', '');
-              const highlightedCode = hljs.highlight(lang, children).value;
+            component: ({ children }) => {
+              const { lang, highlightLines } = reversedLangs.pop() || {
+                lang: 'javascript',
+                highlightLines: [],
+              };
+
+              const htmlCode = highlightCode(lang, children)
+                .split('\n')
+                .map((line, i) =>
+                  highlightLines.includes(i)
+                    ? `<span class="line highlighted">${line}</span>`
+                    : `<span class="line">${line}</span>`,
+                )
+                .join('\n');
+
               return (
                 <code
                   className={`lang-${lang}`}
-                  dangerouslySetInnerHTML={{ __html: highlightedCode }}
+                  dangerouslySetInnerHTML={{
+                    __html: htmlCode,
+                  }}
                 />
               );
             },
