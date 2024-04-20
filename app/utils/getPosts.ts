@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { POSTS_PATH } from '../../constants';
+import { POSTS_PATH } from '../constants/paths';
 import { MatterDataWithContent, PostData } from '@/types';
 
 export function getSortedPosts(): PostData[] {

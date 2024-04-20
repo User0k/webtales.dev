@@ -1,4 +1,4 @@
-import { DARK_COLORS, LIGHT_COLORS } from '../../constants';
+import { DARK_COLORS, LIGHT_COLORS } from '../constants/colors';
 
 export default function generateRibbonColors(tag: string) {
   const backgroundColor =
