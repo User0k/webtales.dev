@@ -11,6 +11,10 @@ export default async function Markdown({ content }: { content: string }) {
         overrides: {
           code: {
             component: ({ children }) => {
+              if (!children.includes('\n')) {
+                return <code className="quote">{children}</code>;
+              }
+
               const { lang, highlightLines } = reversedLangs.pop() || {
                 lang: 'javascript',
                 highlightLines: [],
