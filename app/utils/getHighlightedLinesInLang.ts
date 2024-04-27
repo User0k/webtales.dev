@@ -17,13 +17,13 @@ function lineIndexesFromRule(rule: string | undefined) {
   if (rule) {
     return rule.split(',').reduce((acc: number[], n: string) => {
       if (!n.includes('-')) {
-        acc.push(+n - 1);
+        acc.push(+n);
         return acc;
       }
-
+      /*eslint prefer-const: "off"*/
       let [start, end] = n.split('-').map(Number);
       while (start <= end) {
-        acc.push(start - 1);
+        acc.push(start);
         start++;
       }
 
