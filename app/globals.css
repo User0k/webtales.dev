@@ -1,4 +1,7 @@
 :root {
+  /* additional fonts */
+  --font-secondary: 'Merriweather', serif;
+
   /* colors */
   --color-javascript: #fde22e;
   --color-typescript: #007acc;
@@ -7,16 +10,19 @@
   --color-redux: #764abc;
   --color-react: #61dafb;
   --color-next: #000000;
-  --color-git: #2f9f66;
+  --color-git: #129151;
   --color-success: #4aa74e;
   --color-info: #03a9f4;
   --color-warning: #ffc107;
   --color-danger: #df0000;
   --color-black: #000000;
-  --color-white: #ffffff;
+  --color-white: #f8f8f2;
+  /* --color-white: #fff; */
+  --color-quote: #ebebebcf;
 
   /* radius */
   --radius-small: 4px;
+  --radius-large: 16px;
 }
 
 * {
@@ -41,4 +47,13 @@ a {
 
 ul {
   list-style-type: none;
+}
+
+time {
+  font-family: var(--font-secondary);
+  font-size: 17px;
+}
+
+.fw-300 {
+  font-weight: 300;
 }

@@ -12,14 +12,10 @@
 
 .content {
   margin: 0.5em 2em;
-}
 
-.content li {
-  color: var(--color-typescript);
-}
-
-.content p {
-  padding: 1em 0;
+  & p {
+    padding: 1em 0;
+  }
 }
 
 .cards h2,
@@ -31,14 +27,14 @@
 .card {
   display: inline-flex;
   margin-bottom: 2em;
+
+  & img {
+    object-fit: cover;
+  }
 }
 
 .link {
   position: relative;
-}
-
-.card img {
-  object-fit: cover;
 }
 
 .ribbon {
@@ -52,11 +48,6 @@
   right: 0;
   bottom: 60px;
   clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
-}
-
-.tags {
-  display: flex;
-  gap: 0.5em;
 }
 
 .button {
