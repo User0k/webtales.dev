@@ -1,6 +1,7 @@
 import MDToJSX from 'markdown-to-jsx';
 import getHighlightedLinesInLang from '@/utils/getHighlightedLinesInLang';
 import { getHighlighter } from 'shiki';
+import './code.css';
 
 export default async function Markdown({ content }: { content: string }) {
   const reversedLangs = getHighlightedLinesInLang(content).reverse();

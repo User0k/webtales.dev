@@ -1,0 +1,63 @@
+#post {
+  max-width: 780px;
+  line-height: 28px;
+  margin: 0 auto;
+  padding: 10px;
+
+  & h1 {
+    font-size: 30px;
+    line-height: 40px;
+    padding-bottom: 0.5em;
+  }
+
+  & p {
+    font-size: 17px;
+    margin: 1.5em 0;
+  }
+
+  & .tags {
+    padding-bottom: 0.5em;
+  }
+
+  & header img {
+    padding-top: 0.5em;
+  }
+
+  & img {
+    max-width: 760px;
+  }
+
+  @media (max-width: 780px) {
+    & img {
+      max-width: 100%;
+    }
+  }
+}
+
+.quote {
+  font-size: 15px;
+  font-family: monospace;
+  padding: 2px 5px;
+  border-radius: var(--radius-small);
+  background-color: var(--color-quote);
+}
+
+.btn-back {
+  display: flex;
+  align-items: center;
+  max-width: 180px;
+  margin: 1em 0;
+  color: var(--color-git);
+
+  & svg {
+    margin: 0px 15px;
+    transform: rotate(180deg);
+    fill: var(--color-git);
+    transition: all 0.5s;
+  }
+
+  &:hover svg {
+    margin: 0 30px 0 0;
+    transform: rotate(180deg);
+  }
+}
