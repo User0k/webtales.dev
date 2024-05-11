@@ -6,12 +6,18 @@
 .cards {
   width: 1170px;
   max-width: 100%;
-  min-width: 768px;
   margin: 0 auto;
+  padding: 0 1em;
+
+  @media (max-width: 1024px) {
+    width: calc(100vw - (100vw - 1024px) * 0.1);
+    max-width: 755px;
+    min-width: 315px;
+  }
 }
 
 .content {
-  margin: 0.5em 2em;
+  padding-top: 0.4em;
 
   & p {
     padding: 1em 0;
@@ -25,16 +31,42 @@
 }
 
 .card {
-  display: inline-flex;
+  display: flex;
+  gap: 2em;
   margin-bottom: 2em;
 
   & img {
     object-fit: cover;
+    vertical-align: top;
+  }
+
+  @media (1024px <= width < 1200px) {
+    gap: 1.5em;
+
+    & img {
+      width: 50vw;
+      height: 380px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    gap: 1em;
+
+    & img {
+      width: 100%;
+      height: auto;
+    }
   }
 }
 
-.link {
+.card-link {
   position: relative;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.card-link:hover {
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 9px;
 }
 
 .ribbon {
@@ -48,19 +80,26 @@
   right: 0;
   bottom: 60px;
   clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+
+  @media (max-width: 600px) {
+    min-width: calc(30% + 80px);
+    font-size: 22px;
+    bottom: 40px;
+  }
 }
 
-.button {
+.button-read {
   display: block;
   margin-top: 1em;
   padding: 10px 20px;
-  background-color: #07aae4;
-  color: var(--color-white);
-  max-width: max-content;
+  text-align: center;
+  max-width: 50%;
   border-radius: var(--radius-small);
-  transition: background-color 0.5s;
+  background-image: linear-gradient(-180deg, #07aae4, var(--color-typescript));
+  color: var(--color-white);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
 }
 
-.button:hover {
-  background-color: var(--color-typescript);
+.button-read:hover {
+  background: var(--color-typescript);
 }

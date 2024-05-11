@@ -20,7 +20,7 @@ export default function Home() {
           <h2 className="fw-300">Related posts</h2>
           {posts.map((post) => (
             <article key={post.slug} className="card">
-              <Link href={`/posts/${post.slug}`} className="link">
+              <Link href={`/posts/${post.slug}`} className="card-link">
                 <Image
                   src={`/posts/${post.slug}/${post.image}`}
                   alt={post.title}
@@ -42,8 +42,8 @@ export default function Home() {
                 <time dateTime={post.date}>
                   <i>{dateConverter(post.date)}</i>
                 </time>
-                <Link href={`/posts/${post.slug}`} className="button">
-                  Read article
+                <Link href={`/posts/${post.slug}`} className="button-read">
+                  Read the article
                 </Link>
               </section>
             </article>
