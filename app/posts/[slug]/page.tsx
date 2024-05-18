@@ -7,6 +7,8 @@ import dateConverter from '@/utils/dateConverter';
 import { SlugParams } from '@/types';
 import { Metadata } from 'next/types';
 import { inter } from '@/fonts';
+import './post.css';
+import '@/ui/note.css';
 
 export default async function Post({ params: { slug } }: SlugParams) {
   const { content, data } = getPostContent(slug);
