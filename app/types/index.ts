@@ -4,6 +4,7 @@ export type PostData = {
   description: string;
   date: string;
   image: string;
+  photoBy?: string;
   tags: string[];
 };
 

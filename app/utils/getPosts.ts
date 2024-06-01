@@ -40,6 +40,7 @@ export function getPostContent(slug: string): MatterDataWithContent {
     date: data.date,
     description: data.description,
     image: data.image,
+    photoBy: data.photoBy,
     tags: data.tags,
   };
 

@@ -35,6 +35,7 @@ export default async function Post({ params: { slug } }: SlugParams) {
         <Image
           src={`/posts/${slug}/${data.image}`}
           alt={data.title}
+          title={`photo by ${data.photoBy ?? 'unknown author'}`}
           sizes="100vw"
           style={{
             width: '100%',
@@ -68,5 +69,18 @@ export async function generateMetadata({
   return {
     title: data.title,
     description: data.description,
+    keywords: data.tags,
+    openGraph: {
+      title: data.title,
+      description: data.description,
+      images: [
+        {
+          url: `/posts/${slug}/${data.image}`,
+          width: 1200,
+          height: 628,
+        },
+      ],
+      url: `/posts/${slug}`,
+    },
   };
 }
