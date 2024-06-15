@@ -17,6 +17,16 @@ pre:has(code) {
 }
 
 .highlighted {
-  border-left: 4px solid #a45fff;
+  position: relative;
   background-color: #103757;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #a45fff;
+  }
 }
