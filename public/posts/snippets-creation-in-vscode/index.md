@@ -3,6 +3,8 @@ title: Snippets Creation in VSCode
 description: Improve your coding efficiency in Visual Studio Code by creating custom snippets with a step-by-step guide.
 date: 2022-09-04
 tags: [vscode, snippets]
+image: cover.jpg
+photoBy: Mika Baumeister
 ---
 
 Code snippets are blocks of template code that help to insert commonly used code segments by entering the snippet name and pressing the `Tab` key.

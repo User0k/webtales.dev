@@ -3,6 +3,8 @@ title: Polymorphic Components in TypeScript
 description: Explore how to implement polymorphic components that can adapt to various design variants and customizable UI.
 date: 2024-03-30
 tags: [typescript, react, polymorphism, props-based styling, type-constraints]
+image: arseny-togulev-31.jpg
+photoBy: Arseny Togulev
 ---
 
 If you\`ve ever used a component library like [Material UI](https://mui.com/material-ui/) or [Chakra UI](https://v2.chakra-ui.com/), you\`ve probably noticed that

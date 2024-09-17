@@ -3,6 +3,8 @@ title: Tree Shaking in JavaScript
 description: Wondering what tree shaking is and how it actually works?
 date: 2023-09-24
 tags: [javascript, bundler, Webpack, pure-functions, fundamentals]
+image: john-mccann.jpg
+photoBy: John Mccann
 ---
 
 When developing an application, performance is a crucial factor that everyone on the team considers. It\`s important to be sure that when numerous dependencies are added, only the individual functions that are actually used will be included in the bundle. Otherwise, its size will grow dramatically.

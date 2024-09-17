@@ -3,6 +3,8 @@ title: 'Visualizing Inherited Interfaces and Types Properties'
 description: Discover how to reveal the properties of deeply nested types and interfaces. Simple approach.
 date: 2023-02-12
 tags: [typescript, utility-types, interfaces, types, inheritance]
+image: chris-lawton-50.jpg
+photoBy: Chris Lawton
 ---
 
 Working on a bigger project, it\`s common to have multiple interfaces, where one interface extends from another, the next one extends from the previous one, and so on. Moreover, those interfaces can be located in different files or folders. This approach does its job, but sometimes you may want to view all the properties in the interface, including the inherited ones (same for types, but we will talk about them later). Look at the code below:

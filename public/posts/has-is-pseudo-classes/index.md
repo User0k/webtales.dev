@@ -3,6 +3,8 @@ title: The Dynamic Duo of :is() and :has() Pseudo-Classes
 description: Dive into capabilities of the new CSS pseudo-selectors. Examples included.
 date: 2023-05-23
 tags: [css, pseudo-classes, :has, :is, :where]
+image: magnifying-glass.jpg
+photoBy: AI
 ---
 
 Before we start, I need to mention that both `:is()` and `:has()` are functional pseudo-classes. This means that they _permit selection based on information that lies outside of the document tree_, and it\`s sometimes easier to get specific elements using them (you can even avoid some Javascript code using `:has()` in certain cases).
