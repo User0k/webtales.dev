@@ -1,5 +1,7 @@
 .tags {
   display: flex;
   gap: 0.5em;
+  overflow-x: auto;
+  white-space: nowrap;
   color: var(--color-typescript);
 }

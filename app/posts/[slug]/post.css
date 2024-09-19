@@ -25,10 +25,7 @@
 
   & img {
     max-width: 760px;
-  }
-
-  @media (max-width: 780px) {
-    & img {
+    @media (max-width: 780px) {
       max-width: 100%;
     }
   }

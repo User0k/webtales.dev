@@ -10,7 +10,7 @@
   padding: 0 1em;
 
   @media (max-width: 1024px) {
-    width: calc(100vw - (100vw - 1024px) * 0.1);
+    width: 100vw;
     max-width: 755px;
     min-width: 315px;
   }
@@ -28,12 +28,21 @@
 .content h3 {
   font-size: 30px;
   padding-bottom: 0.5em;
+
+  @media (max-width: 600px) {
+    font-size: 27px;
+    line-height: 48px;
+  }
 }
 
 .card {
   display: flex;
   gap: 2em;
   margin-bottom: 2em;
+
+  & a {
+    text-decoration: none;
+  }
 
   & img {
     object-fit: cover;
@@ -81,10 +90,16 @@
   bottom: 60px;
   clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
 
-  @media (max-width: 600px) {
+  @media (420px < width <= 600px) {
     min-width: calc(30% + 80px);
     font-size: 22px;
     bottom: 40px;
+  }
+
+  @media (max-width: 420px) {
+    min-width: calc(30% + 50px);
+    font-size: 18px;
+    bottom: 30px;
   }
 }
 
@@ -93,7 +108,8 @@
   margin-top: 1em;
   padding: 10px 20px;
   text-align: center;
-  max-width: 50%;
+  width: 50%;
+  min-width: 160px;
   border-radius: var(--radius-small);
   background-image: linear-gradient(-180deg, #07aae4, var(--color-typescript));
   color: var(--color-white);
