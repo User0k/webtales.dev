@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { notFound } from 'next/navigation';
 import { POSTS_PATH } from '../constants/paths';
 import { MatterDataWithContent, PostData } from '@/types';
 
@@ -34,15 +35,20 @@ function transformImagesPaths(content: string, slug: string) {
 
 export function getPostContent(slug: string): MatterDataWithContent {
   const file = `${POSTS_PATH}/${slug}/index.md`;
-  const { content, data } = matter(fs.readFileSync(file, 'utf-8'));
-  const postData = {
-    title: data.title,
-    date: data.date,
-    description: data.description,
-    image: data.image,
-    photoBy: data.photoBy,
-    tags: data.tags,
-  };
 
-  return { content: transformImagesPaths(content, slug), data: postData };
+  try {
+    const { content, data } = matter(fs.readFileSync(file, 'utf-8'));
+    const postData = {
+      title: data.title,
+      date: data.date,
+      description: data.description,
+      image: data.image,
+      photoBy: data.photoBy,
+      tags: data.tags,
+    };
+
+    return { content: transformImagesPaths(content, slug), data: postData };
+  } catch (e) {
+    notFound();
+  }
 }

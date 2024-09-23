@@ -1,20 +1,22 @@
 {
-  "name": "blog",
+  "name": "webtales.dev",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next lint && next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.9.0",
     "markdown-to-jsx": "^7.4.1",
-    "next": "14.1.0",
+    "next": "^14.1.0",
     "react": "^18",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "sharp": "^0.33.3"
   },
   "devDependencies": {
     "@types/node": "^20",
