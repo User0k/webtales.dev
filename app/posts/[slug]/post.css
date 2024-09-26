@@ -29,6 +29,10 @@
       max-width: 100%;
     }
   }
+
+  & ol {
+    padding-left: 1.3em;
+  }
 }
 
 .quote {
@@ -37,4 +41,14 @@
   padding: 2px 5px;
   border-radius: var(--radius-small);
   background-color: var(--color-quote);
+}
+
+.list-circle-margin {
+  list-style-type: circle;
+  padding-left: 1.3em;
+  margin: 1.3em 0;
+
+  & ::marker {
+    color: #4d4d4db8;
+  }
 }

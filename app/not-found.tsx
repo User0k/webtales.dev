@@ -13,7 +13,7 @@ export default function NotFound() {
         <p className="not-found-actions">
           <BtnBack /> |{' '}
           <Link href={`${GITHUB_URL}/issues`} className="link-issue">
-            Create an issue
+            Create issue
           </Link>
         </p>
       </article>
