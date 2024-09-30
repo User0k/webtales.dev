@@ -1,9 +1,11 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import Markdown from './MDWithCode';
 import Tags from '@/ui/Tags';
 import BtnBack from '@/ui/BtnBack';
 import { getPostContent, getSortedPosts } from '@/utils/getPosts';
 import dateConverter from '@/utils/dateConverter';
+import { GITHUB_URL } from '@/constants/paths';
 import { SlugParams } from '@/types';
 import { Metadata } from 'next/types';
 import { inter } from '@/fonts';
@@ -38,6 +40,13 @@ export default async function Post({ params: { slug } }: SlugParams) {
       </header>
       <main>
         <Markdown content={content} />
+        <Link
+          href={`${GITHUB_URL}/edit/main/public/posts/${slug}/index.md`}
+          className="edit-github"
+          target="_blank"
+        >
+          Edit on GitHub
+        </Link>
       </main>
     </div>
   );

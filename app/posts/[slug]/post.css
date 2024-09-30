@@ -52,3 +52,11 @@
     color: #4d4d4db8;
   }
 }
+
+.edit-github {
+  color: var(--color-git);
+
+  &:hover {
+    text-decoration-line: none;
+  }
+}
