@@ -14,6 +14,18 @@ export default async function Markdown({ content }: { content: string }) {
     <MDToJSX
       options={{
         overrides: {
+          a: {
+            component: async ({ href, children }) => {
+              if (href?.startsWith('http')) {
+                return (
+                  <a href={href} target="_blank" rel="noreferrer">
+                    {children}
+                  </a>
+                );
+              }
+              return <a href={href}>{children}</a>;
+            },
+          },
           code: {
             component: async ({ children }) => {
               if (!children.includes('\n')) {
