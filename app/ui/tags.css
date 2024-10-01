@@ -1,7 +1,13 @@
 .tags {
   display: flex;
   gap: 0.5em;
+  line-height: 1.5em;
+  color: var(--color-typescript);
   overflow-x: auto;
   white-space: nowrap;
-  color: var(--color-typescript);
+
+  & li:not(:last-child) {
+    border-right: 2px solid;
+    padding-right: 0.5em;
+  }
 }

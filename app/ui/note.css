@@ -8,10 +8,12 @@ note-info {
   position: relative;
   border-left: 7px solid;
   color: rgba(0, 0, 0, 0.9);
+  font-family: var(--font-secondary);
   font-style: italic;
+  font-size: 18px;
 
   &::after {
-    opacity: 0.3;
+    opacity: 0.2;
     content: '';
     position: absolute;
     top: 0;
