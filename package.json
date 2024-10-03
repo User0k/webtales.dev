@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next lint && next dev --turbo",
+    "dev": "next lint && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix"
   },
   "dependencies": {
+    "@next/third-parties": "^14.2.14",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.9.0",
     "markdown-to-jsx": "^7.4.1",
