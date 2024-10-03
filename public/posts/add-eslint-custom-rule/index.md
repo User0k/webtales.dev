@@ -218,7 +218,7 @@ You may need to restart your IDE again, and now, if you run ESLint with `--fix` 
 ## Adding options to your rule
 
 You may already be wondering how to provide options to your rule. Wouldn\`t it be great to specify a path or even an array of paths to be restricted in your rule instead of hardcoding them each time? The good news is that you can do this inside your [schema](#starting-to-create-your-own-rule).
-You need to include a `oneOf` property inside it to validate various schemas available (you can find more options for JSON Schema V4 [here](https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-04#section-3.5)). At this stage, your `schema` should look like this:
+You need to include a `oneOf` property inside it to validate various schemas available ([more options for JSON Schema V4](https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-04#section-3.5)). At this stage, your `schema` should look like this:
 
 ```js
 schema: [
