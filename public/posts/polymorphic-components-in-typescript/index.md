@@ -7,7 +7,7 @@ image: arseny-togulev-31.jpg
 photoBy: Arseny Togulev
 ---
 
-If you\`ve ever used a component library like [Material UI](https://mui.com/material-ui/) or [Chakra UI](https://v2.chakra-ui.com/), you\`ve probably noticed that
+If you've ever used a component library like [Material UI](https://mui.com/material-ui/) or [Chakra UI](https://v2.chakra-ui.com/), you've probably noticed that
 some components have a prop that allows you to override the default HTML element with a different one. Based on the [`Button`](https://mui.com/material-ui/api/button/) example, this approach allows the component to receive a `component` prop along with other props the ordinary `Button` component does and render a different HTML element. Components that adapt to different use cases this way are well known as **polymorphic components**.
 
 <note-info>
@@ -17,7 +17,7 @@ On the positive side, polymorphic components offer reusability and flexibility b
 However, there are also drawbacks to consider: implementing polymorphic components can introduce complexity and may result in limited type safety. There is a chance that they might not cover all possible scenarios, leading to potential issues. We will ascertain this soon.
 </note-info>
 
-Now let\`s take a look at the Material UI `Button`. Install dependencies first: `npm install @mui/material`. Most components (and the `Button` as well) may receive a `component` prop that satisfies the desired behavior. For example:
+Now let's take a look at the Material UI `Button`. Install dependencies first: `npm install @mui/material`. Most components (and the `Button` as well) may receive a `component` prop that satisfies the desired behavior. For example:
 
 ```tsx
 import Button from '@mui/material/Button';
@@ -37,7 +37,7 @@ function App() {
 }
 ```
 
-Cool! This renders three buttons that look exactly the same, but if you open your DevTools to inspect them, you will see that the second element is a `div` element and the third one is an `a`. Now let\`s check if components may receive invalid attributes:
+Cool! This renders three buttons that look exactly the same, but if you open your DevTools to inspect them, you will see that the second element is a `div` element and the third one is an `a`. Now let's check if components may receive invalid attributes:
 
 ```tsx {2,5,10-12}
 <>
@@ -66,7 +66,7 @@ TypeScript raises an error stating that the `target` prop is invalid for the but
 
 ## Button customization through props
 
-We will do something similar to the [`Button`](https://mui.com/material-ui/react-button/) component from Material UI. I will name it `UIButton`. Let\`s start with a simple prop-based styling component. The easiest way to do it is to extend the original HTML `button` element and modify it further, step by step.
+We will do something similar to the [`Button`](https://mui.com/material-ui/react-button/) component from Material UI. I will name it `UIButton`. Let's start with a simple prop-based styling component. The easiest way to do it is to extend the original HTML `button` element and modify it further, step by step.
 
 ```tsx
 import { ButtonHTMLAttributes } from 'react';
@@ -77,7 +77,7 @@ export default function UIButton({ ...props }: UIButtonProps) {
 }
 ```
 
-Now the `UIButton` serves just as a wrapper for the original `button` and can accept the same props as the original, such as disabled, key, onClick, and so on. Now we need to enable our button component to handle custom props. I would like to add props like `color` to easily change the color of the button, `size` to change its dimensions, and `variant` to vary the button\`s appearance. Let\`s modify `UIButtonProps` accordingly:
+Now the `UIButton` serves just as a wrapper for the original `button` and can accept the same props as the original, such as disabled, key, onClick, and so on. Now we need to enable our button component to handle custom props. I would like to add props like `color` to easily change the color of the button, `size` to change its dimensions, and `variant` to vary the button's appearance. Let's modify `UIButtonProps` accordingly:
 
 ```tsx
 type Variant = 'text' | 'contained' | 'outlined';
@@ -144,7 +144,7 @@ You will notice that you can use it with any number of custom class names, as we
 
 ![mergeClasses util examples](./merge-classes.gif 'mergeClasses util examples')
 
-This utility simplifies the inclusion of styles for each selected property. I\`ve used the individual property key names (e.g., variant-, color-, size) to generate class names and have added the associated styles (don\`t forget to include them). So it can be utilized by using `variant-${variant}` or `color-${color}`, and the relevant styles will be automatically applied.
+This utility simplifies the inclusion of styles for each selected property. I've used the individual property key names (e.g., variant-, color-, size) to generate class names and have added the associated styles (don't forget to include them). So it can be utilized by using `variant-${variant}` or `color-${color}`, and the relevant styles will be automatically applied.
 <br>
 Now all that is left to do is make props inside `UIButtonProps` optional and destructure them with the default values:
 

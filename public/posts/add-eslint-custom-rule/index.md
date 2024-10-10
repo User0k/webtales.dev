@@ -8,14 +8,14 @@ photoBy: Randy Fath
 ---
 
 While ESLint is a fantastic tool that has a large [collection of rules](https://eslint.org/docs/latest/rules/), you might also be thinking about creating your own custom rule and configuring it.
-However, before proceeding, it\`s wise to check if ESLint already has a rule for you. Really. Many people think that they need to create a custom rule or plugin for their team before exploring the existing ones. While creating a custom rule isn\`t as complicated as it may seem, it may be more profitable to utilize existing, well-tested rules.
+However, before proceeding, it's wise to check if ESLint already has a rule for you. Really. Many people think that they need to create a custom rule or plugin for their team before exploring the existing ones. While creating a custom rule isn't as complicated as it may seem, it may be more profitable to utilize existing, well-tested rules.
 
 ## Initializing a properly structured project
 
-Alright, let's say you haven\`t discovered a suitable rule or simply want to practice with rule creation. If you\`re using ESLint 9, you must follow the specific name convention and file structure in your plugin. Yes, you [have to create a plugin](https://github.com/eslint/eslint/commit/4940cc5c4903a691fe51d409137dd573c4c7706e) in order to implement your own custom rule.
+Alright, let's say you haven't discovered a suitable rule or simply want to practice with rule creation. If you're using ESLint 9, you must follow the specific name convention and file structure in your plugin. Yes, you [have to create a plugin](https://github.com/eslint/eslint/commit/4940cc5c4903a691fe51d409137dd573c4c7706e) in order to implement your own custom rule.
 
 <note-success>
-Notice that if you\`re using ESLint 8 or earlier, you may try to use a `--rulesdir` flag to direct ESLint to your custom rule located in a specific directory. This allows you to skip creating a plugin if you don\`t need it and [jump into the rule creation](#starting-to-create-your-own-rule).
+Notice that if you're using ESLint 8 or earlier, you may try to use a `--rulesdir` flag to direct ESLint to your custom rule located in a specific directory. This allows you to skip creating a plugin if you don't need it and [jump into the rule creation](#starting-to-create-your-own-rule).
 <br/>
 For example, your script for the `src` directory could look like this: `"lint": "eslint --rulesdir src rules-folder/your-custom-rule.js"`
 </note-success>
@@ -36,7 +36,7 @@ package.json
 
 ## Starting to create your own rule
 
-It\`s time to consider creating your own rule. I would like to create a rule that restricts any imports from a specific folder. Why? This can violate encapsulation or dependency management.
+It's time to consider creating your own rule. I would like to create a rule that restricts any imports from a specific folder. Why? This can violate encapsulation or dependency management.
 
 The rule object [consists of two things](https://eslint.org/docs/latest/extend/custom-rules#rule-structure): an optional `meta` object and a `create` method where we will write all the logic. Add this line `/** @type {import('eslint').Rule.RuleModule} */` at the beginning of the file with your rule. This will facilitate the definition of the rule object. While the `meta` object is optional, it is recommended to include it. I will fill these properties:
 
@@ -69,7 +69,7 @@ module.exports = {
 The `create` method takes only one argument: context. Context is an object that provides information about the file and returns a _visitor_ object, where the keys are [AST selectors](https://eslint.org/docs/latest/extend/selectors#what-is-a-selector) and the values are a function applied to the selected nodes.
 
 In this section, we need to determine if the code contains an import declaration and if this statement includes import from `'./restricted-folder'`. If it does, ESLint should generate an error.
-_But if this is your first encounter with AST, you might be wondering how to deal with this and which selectors to use_. Don\`t worry! You do not need to know any of the existing selectors or AST nodes. Visit [AST Explorer](https://astexplorer.net/) and select [espree](https://eslint.org/blog/2014/12/espree-esprima/) as a parser from the top menu, and paste your regular JavaScript code into the left side of the AST Explorer. For this <span id="example">example</span>, I will use React.
+_But if this is your first encounter with AST, you might be wondering how to deal with this and which selectors to use_. Don't worry! You do not need to know any of the existing selectors or AST nodes. Visit [AST Explorer](https://astexplorer.net/) and select [espree](https://eslint.org/blog/2014/12/espree-esprima/) as a parser from the top menu, and paste your regular JavaScript code into the left side of the AST Explorer. For this <span id="example">example</span>, I will use React.
 
 ```jsx
 import { useState } from 'react';
@@ -133,7 +133,7 @@ module.exports = {
 The next step is a [plugin configuration](https://eslint.org/docs/latest/use/configure/plugins#configure-a-local-plugin). You should do it in the entry point of your custom rule project (usually `index.js`). Your plugin is an object that contains two objects:
 
 - `plugins:` where a key is the name of your plugin, which has a `rules` property with a rules object. **Do not use the `eslint-plugin` prefix for the naming! ESLint will do this for you.**
-- `rules:` This section has keys representing rules in the format `[plugin-name]/[rule-name]`, and the values indicate the severity settings that determine how ESLint deals with rule violations during linting by default (`error`, `warn`, or `off`). You can overwrite the severity later. **Please pay close attention to the naming: if you use an incorrect plugin name or a name that doesn\`t match the one defined in the `rules/index.js` file, the rule will not work for you.**
+- `rules:` This section has keys representing rules in the format `[plugin-name]/[rule-name]`, and the values indicate the severity settings that determine how ESLint deals with rule violations during linting by default (`error`, `warn`, or `off`). You can overwrite the severity later. **Please pay close attention to the naming: if you use an incorrect plugin name or a name that doesn't match the one defined in the `rules/index.js` file, the rule will not work for you.**
 
 It may be easier to look at the example:
 
@@ -152,7 +152,7 @@ module.exports = {
 };
 ```
 
-You do not need to publish your plugin to `NPM` (but you already can). Instead, you can load it locally. You can add your plugin as a devDependency in `package.json` of the project where you intend to use it. Use the following format: `"eslint-plugin-[name-of-yourplugin]": "file:[location of your plugin]"`. Here\`s an example:
+You do not need to publish your plugin to `NPM` (but you already can). Instead, you can load it locally. You can add your plugin as a devDependency in `package.json` of the project where you intend to use it. Use the following format: `"eslint-plugin-[name-of-yourplugin]": "file:[location of your plugin]"`. Here's an example:
 
 ```json {5}
   "devDependencies": {
@@ -189,7 +189,7 @@ Now, if I add some more errors, such as mapping without a key, to the [example](
 
 ## Applying fixes automatically
 
-This might be sufficient for your needs, but if you want ESLint to automatically apply fixes, you must specify the `fix` function [within `context.report()`](#starting-to-create-your-own-rule). I would like the fix to automatically remove the import and the whitespace after it. To find the precise location of the specified import, refer to [AST explorer](https://astexplorer.net/) again. The `ImportDeclaration` has a `range` tuple that indicates the location of the import. All that\`s left to do is apply this range and a character after it to the [`fixer.removeRange()` method](https://eslint.org/docs/latest/extend/custom-rules#applying-fixes):
+This might be sufficient for your needs, but if you want ESLint to automatically apply fixes, you must specify the `fix` function [within `context.report()`](#starting-to-create-your-own-rule). I would like the fix to automatically remove the import and the whitespace after it. To find the precise location of the specified import, refer to [AST explorer](https://astexplorer.net/) again. The `ImportDeclaration` has a `range` tuple that indicates the location of the import. All that's left to do is apply this range and a character after it to the [`fixer.removeRange()` method](https://eslint.org/docs/latest/extend/custom-rules#applying-fixes):
 
 ```js {9-12}
 create(context) {
@@ -217,7 +217,7 @@ You may need to restart your IDE again, and now, if you run ESLint with `--fix` 
 
 ## Adding options to your rule
 
-You may already be wondering how to provide options to your rule. Wouldn\`t it be great to specify a path or even an array of paths to be restricted in your rule instead of hardcoding them each time? The good news is that you can do this inside your [schema](#starting-to-create-your-own-rule).
+You may already be wondering how to provide options to your rule. Wouldn't it be great to specify a path or even an array of paths to be restricted in your rule instead of hardcoding them each time? The good news is that you can do this inside your [schema](#starting-to-create-your-own-rule).
 You need to include a `oneOf` property inside it to validate various schemas available ([more options for JSON Schema V4](https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-04#section-3.5)). At this stage, your `schema` should look like this:
 
 ```js
@@ -236,7 +236,7 @@ schema: [
 ],
 ```
 
-You can now access the options inside `create(context)` in the following way: `const options = context.options[0]`. Next, you\`ll need to modify the logic within the `context`: if the options is a string, convert it into an array, then iterate through the array and report an error on each match with a restricted folder. I also replaced `includes` by `startsWith` for cases where the paths have similar names:
+You can now access the options inside `create(context)` in the following way: `const options = context.options[0]`. Next, you'll need to modify the logic within the `context`: if the options is a string, convert it into an array, then iterate through the array and report an error on each match with a restricted folder. I also replaced `includes` by `startsWith` for cases where the paths have similar names:
 
 ```js {2,3,8,9, 13-15}
 create(context) {

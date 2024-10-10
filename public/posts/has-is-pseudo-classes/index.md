@@ -7,11 +7,11 @@ image: magnifying-glass.jpg
 photoBy: AI
 ---
 
-Before we start, I need to mention that both `:is()` and `:has()` are functional pseudo-classes. This means that they _permit selection based on information that lies outside of the document tree_, and it\`s sometimes easier to get specific elements using them (you can even avoid some Javascript code using `:has()` in certain cases).
+Before we start, I need to mention that both `:is()` and `:has()` are functional pseudo-classes. This means that they _permit selection based on information that lies outside of the document tree_, and it's sometimes easier to get specific elements using them (you can even avoid some Javascript code using `:has()` in certain cases).
 
 ## Forgiving Selector List
 
-I have to mention that, in my opinion, the articles on these pseudo-classes give too much attention to this. According to the [specification](https://drafts.csswg.org/selectors-4/#typedef-forgiving-selector-list), _the general behavior of a selector list is that if any selector in the list fails to parse, the entire selector list becomes invalid_. This behavior is known as being unforgiving. But if you use `:is()` or `:where()`, [the incorrect or unsupported selector will be ignored, and the others will be used](https://developer.mozilla.org/en-US/docs/Web/CSS/:is). Okay, let\`s check out this statement:
+I have to mention that, in my opinion, the articles on these pseudo-classes give too much attention to this. According to the [specification](https://drafts.csswg.org/selectors-4/#typedef-forgiving-selector-list), _the general behavior of a selector list is that if any selector in the list fails to parse, the entire selector list becomes invalid_. This behavior is known as being unforgiving. But if you use `:is()` or `:where()`, [the incorrect or unsupported selector will be ignored, and the others will be used](https://developer.mozilla.org/en-US/docs/Web/CSS/:is). Okay, let's check out this statement:
 
 ```html
 <article>
@@ -32,7 +32,7 @@ article :not(h2, :nonsense) {
 }
 ```
 
-I made two mistakes in both CSS cases. What color do you expect the elements within the `article` to be? When speaking about an unforgiving list selector, you should expect the color to be default (black). But `span` and `button` colors are blue. So the second case has made the entire selector list invalid, while the first one can still use the correct `h2`. Let\`s fix the second:
+I made two mistakes in both CSS cases. What color do you expect the elements within the `article` to be? When speaking about an unforgiving list selector, you should expect the color to be default (black). But `span` and `button` colors are blue. So the second case has made the entire selector list invalid, while the first one can still use the correct `h2`. Let's fix the second:
 
 ```css {5}
 article :not(btton, h2) {
@@ -98,7 +98,7 @@ note-info {
 }
 ```
 
-Let\`s take another situation. What about styling every possible title that lies inside the `article` or `section`? If you use `:is()` it will be very easy:
+Let's take another situation. What about styling every possible title that lies inside the `article` or `section`? If you use `:is()` it will be very easy:
 
 ```css
 :is(article, section) :is(h1, h2, h3, h4, h5, h6) {
@@ -159,14 +159,14 @@ The title is blue. But why? Although `.selector` does not exist in the HTML, but
 
 ## His Majesty :has() relational pseudo-class
 
-The most interesting thing is that, unlike `:is()`, `:has()` [can represent some logic](https://drafts.csswg.org/selectors-4/#relational): it selects an element if it contains another element that matches a given selector. You can think about it this way: **if** a parent element (or a sibling) **has** this child element, **apply** that styles. This tool is especially useful when you don\`t have any control over the HTML.
+The most interesting thing is that, unlike `:is()`, `:has()` [can represent some logic](https://drafts.csswg.org/selectors-4/#relational): it selects an element if it contains another element that matches a given selector. You can think about it this way: **if** a parent element (or a sibling) **has** this child element, **apply** that styles. This tool is especially useful when you don't have any control over the HTML.
 
 <note-info>
 This is the only way to select an element based on its child or a sibling using CSS.
 Unlike `:is()` or `:where()`, the rule will be applied to the selector **before** `:has()`.
 </note-info>
 
-Now let\`s take some examples:
+Now let's take some examples:
 
 ## Styling a child based on a child sibling
 
@@ -192,8 +192,8 @@ Now let\`s take some examples:
 }
 ```
 
-Here we have some cards where some of them have a `button` and a `span` while others don\`t (imagine that instead of 3, you have much more cards). A `button` inside the card can be disabled. Based on this information, you should change the `span` in the card to indicate which button is disabled. It could be tough enough if `:has()` didn\'t exist.
-Now you can think about the task this way: _«select the card that **has** a button attribute `disabled`, and then select the `span` in that card»_. Let\`s change the color of the `span` in the task to red:
+Here we have some cards where some of them have a `button` and a `span` while others don't (imagine that instead of 3, you have much more cards). A `button` inside the card can be disabled. Based on this information, you should change the `span` in the card to indicate which button is disabled. It could be tough enough if `:has()` didn\'t exist.
+Now you can think about the task this way: _«select the card that **has** a button attribute `disabled`, and then select the `span` in that card»_. Let's change the color of the `span` in the task to red:
 
 ```css {1-3}
 .card:has(button[disabled]) span {
@@ -203,7 +203,7 @@ Now you can think about the task this way: _«select the card that **has** a but
 
 ## Negation with :has()
 
-Another useful thing is to use the negation of having a certain selector. Let\`s take the previous example and select the `span` in the card whose button is NOT disabled (does `not have` a `disabled` attribute), colorize it, and add quotes around it:
+Another useful thing is to use the negation of having a certain selector. Let's take the previous example and select the `span` in the card whose button is NOT disabled (does `not have` a `disabled` attribute), colorize it, and add quotes around it:
 
 ```css
 .card:not(:has(button[disabled])) span {
@@ -227,7 +227,7 @@ Please, pay attention to the order of selectors. Doing this
 
 ## Manipulate the form if it has any errors
 
-Let\`s create a simple form that has three input fields: email, username, and password. This displays a validation error if any input is invalid:
+Let's create a simple form that has three input fields: email, username, and password. This displays a validation error if any input is invalid:
 
 ```html
 <form>
@@ -285,7 +285,7 @@ form:not(:has(input:invalid)) button {
 ## Count elements
 
 What if I get some amount of cards, images, etc in a row? There can be plenty of them. I may want to display only some of them.
-Let\`s show a maximum of 4 and a button to show more cards, which should be displayed only if we have 5 or more.
+Let's show a maximum of 4 and a button to show more cards, which should be displayed only if we have 5 or more.
 
 ```html
 <div class="container">
