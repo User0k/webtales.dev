@@ -2,7 +2,7 @@
 title: Add Your Own Custom Rules to ESLint 9
 description: Create custom ESLint rules to enhance code quality and enforce project-specific standards
 date: 2024-09-27
-tags: [eslint, linting, ast, code-quality]
+tags: [ESLint, linting, AST, code-quality]
 image: randy-fath.jpg
 photoBy: Randy Fath
 ---

@@ -2,7 +2,7 @@
 title: Tree Shaking in JavaScript
 description: Wondering what tree shaking is and how it actually works?
 date: 2023-09-24
-tags: [javascript, bundler, Webpack, pure-functions, fundamentals]
+tags: [JavaScript, bundler, Webpack, pure-functions, fundamentals]
 image: john-mccann.jpg
 photoBy: John Mccann
 ---

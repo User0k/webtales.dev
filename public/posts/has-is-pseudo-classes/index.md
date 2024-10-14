@@ -2,7 +2,7 @@
 title: The Dynamic Duo of :is() and :has() Pseudo-Classes
 description: Dive into capabilities of the new CSS pseudo-selectors. Examples included.
 date: 2023-05-23
-tags: [css, pseudo-classes, :has, :is, :where]
+tags: [CSS, pseudo-classes, :has, :is, :where]
 image: magnifying-glass.jpg
 photoBy: AI
 ---

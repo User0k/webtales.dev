@@ -2,7 +2,7 @@
 title: 'Visualizing Inherited Interfaces and Types Properties'
 description: Discover how to reveal the properties of deeply nested types and interfaces. Simple approach.
 date: 2023-02-12
-tags: [typescript, utility-types, interfaces, types, inheritance]
+tags: [TypeScript, utility-types, interfaces, types, inheritance]
 image: chris-lawton-50.jpg
 photoBy: Chris Lawton
 ---

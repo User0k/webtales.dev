@@ -2,7 +2,7 @@
 title: Snippets Creation in VSCode
 description: Improve your coding efficiency in Visual Studio Code by creating custom snippets with a step-by-step guide.
 date: 2022-09-04
-tags: [vscode, snippets]
+tags: [VSCode, snippets]
 image: cover.jpg
 photoBy: Mika Baumeister
 ---
