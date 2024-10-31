@@ -46,6 +46,24 @@ The rule object [consists of two things](https://eslint.org/docs/latest/extend/c
 - `schema:` is necessary to fill if a rule has any options (we will back to it closer to the end of the article). For now, leave it as an empty array.
 - `messages:` is a [strongly recommended](https://eslint.org/docs/latest/extend/custom-rules#messageids) object that follows the pattern `"messageId": "message"` that allows you to provide descriptive and user-friendly messages for different types of violations that the rule may catch.
 
+<ul className="list-circle-margin">
+  <li>
+    `type: problem | suggestion | layout` indicates the type of rule. A `"problem"` in my case.
+  </li>
+  <li>
+    `docs:` contains a `description` of the rule and a `url` to the documentation. If provided, it will create a clickable link to the documentation; for me, it will be `null`.
+  </li>
+  <li>
+    `fixable: code | whitespace`. You must include this if you want ESLint to automatically fix the rule. As it will remove the specific line of code in my case, I will use `code`.
+  </li>
+  <li>
+    `schema:` is necessary to fill if a rule has any options (we will back to it closer to the end of the article). For now, leave it as an empty array.
+  </li>
+  <li>
+    `messages:` is a [strongly recommended](https://eslint.org/docs/latest/extend/custom-rules#messageids) object that follows the pattern `"messageId": "message"` that allows you to provide descriptive and user-friendly messages for different types of violations that the rule may catch.
+  </li>
+</ul>
+
 ```js
 /** @type {import('eslint').Rule.RuleModule} */
 module.exports = {
