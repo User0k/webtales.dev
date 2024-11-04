@@ -15,9 +15,10 @@
   --color-info: #03a9f4;
   --color-warning: #ffc107;
   --color-danger: #df0000;
-  --color-black: #000000;
-  --color-white: #f8f8f2;
   --color-quote: #ebebebcf;
+  --color-black: #000000;
+  --color-gray: #565b5b;
+  --color-white: #f8f8f2;
 
   /* radius */
   --radius-small: 4px;
@@ -67,4 +68,8 @@ time {
   h2 {
     font-size: 23px;
   }
+}
+
+footer {
+  color: ligh;
 }
