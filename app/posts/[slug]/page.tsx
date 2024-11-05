@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Markdown from './MDWithCode';
 import Tags from '@/ui/Tags';
 import BtnBack from '@/ui/BtnBack';
+import Socials from '@/ui/Socials';
 import { getPostContent, getSortedPosts } from '@/utils/getPosts';
 import dateConverter from '@/utils/dateConverter';
 import { GITHUB_URL } from '@/constants/paths';
@@ -48,6 +49,10 @@ export default async function Post({ params: { slug } }: SlugParams) {
           Edit on GitHub
         </Link>
       </main>
+      <footer id="post-footer">
+        <span>&copy; {new Date().getFullYear()} Pavel Altov</span>
+        <Socials />
+      </footer>
     </div>
   );
 }

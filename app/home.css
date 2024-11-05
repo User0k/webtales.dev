@@ -119,3 +119,23 @@
 .button-read:hover {
   background: var(--color-typescript);
 }
+
+#home-footer {
+  display: flex;
+  justify-content: space-between;
+  width: 1170px;
+  margin: auto;
+  padding: 1em;
+  color: var(--color-gray);
+  font-size: 1.3em;
+  line-height: 22px;
+
+  @media (max-width: 1024px) {
+    width: 100vw;
+    max-width: 755px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1em;
+  }
+}

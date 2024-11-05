@@ -54,7 +54,7 @@
   }
 
   & ::marker {
-    color: #4d4d4db8;
+    color: var(--color-gray);
   }
 }
 
@@ -64,4 +64,12 @@
   &:hover {
     text-decoration-line: none;
   }
+}
+
+#post-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2em;
+  color: var(--color-gray);
+  line-height: 22px;
 }

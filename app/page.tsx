@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Tags from './ui/Tags';
+import Socials from './ui/Socials';
 import { getSortedPosts } from './utils/getPosts';
 import dateConverter from './utils/dateConverter';
 import generateRibbonColors from './utils/generateRibbonColors';
@@ -13,7 +14,6 @@ export default function Home() {
     <>
       <header className={inter.className}>
         <h1 className="title">Home</h1>
-        {/* Navigation, search, logo... */}
       </header>
       <main className={inter.className}>
         <section className="cards">
@@ -50,6 +50,10 @@ export default function Home() {
           ))}
         </section>
       </main>
+      <footer id="home-footer" className={inter.className}>
+        <span>&copy; {new Date().getFullYear()} Pavel Altov</span>
+        <Socials />
+      </footer>
     </>
   );
 }

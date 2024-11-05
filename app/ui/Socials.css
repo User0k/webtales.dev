@@ -1,0 +1,26 @@
+.social-nav {
+  & ul {
+    display: flex;
+    column-gap: 1em;
+
+    @media (max-width: 768px) {
+      column-gap: 0.3em;
+    }
+  }
+
+  & a {
+    padding: 8px;
+  }
+
+  & svg {
+    fill: var(--color-gray);
+  }
+
+  & li:has(:hover) svg {
+    transform: translateY(-4px);
+    fill: var(--color-typescript);
+    transition:
+      transform 0.5s,
+      fill 0.5s;
+  }
+}
