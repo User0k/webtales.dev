@@ -22,7 +22,7 @@
 
   & p:first-of-type {
     font-size: clamp(1.1em, 4vw, 1.5em);
-    margin-top: -1.5em;
+    margin-top: -0.5em;
 
     @media (max-width: 480px) {
       margin-top: 0;
